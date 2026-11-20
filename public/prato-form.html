@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Pratos - Sabor da Casa</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a href="index.html" class="logo">Sabor da Casa</a>
+
+      <nav class="navegacao">
+        <a href="index.html">Cardápio</a>
+        <a href="categoria-form.html">Categorias</a>
+        <a href="prato-form.html">Pratos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container secao-formulario">
+
+    <a href="index.html" class="voltar">← Voltar ao cardápio</a>
+
+    <h1>Cadastro de pratos</h1>
+    <p>Cadastre as opções disponíveis no cardápio.</p>
+
+    <form id="form-prato">
+
+      <input type="hidden" id="prato-id">
+
+      <div class="campo">
+        <label for="categoria">Categoria</label>
+        <select id="categoria" required>
+          <option value="">Selecione uma categoria</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="nome">Nome do prato</label>
+        <input
+          type="text"
+          id="nome"
+          maxlength="100"
+          required
+          placeholder="Ex.: Frango grelhado"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="descricao">Descrição</label>
+        <textarea
+          id="descricao"
+          maxlength="300"
+          placeholder="Descreva os ingredientes e acompanhamentos"
+        ></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="preco">Preço (R$)</label>
+        <input
+          type="number"
+          id="preco"
+          min="0.01"
+          max="99999999.99"
+          step="0.01"
+          required
+          placeholder="Ex.: 24.90"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="disponivel">
+          <input type="checkbox" id="disponivel" checked>
+          Prato disponível
+        </label>
+      </div>
+
+      <button type="submit" class="botao">
+        Salvar prato
+      </button>
+
+      <p id="mensagem"></p>
+
+    </form>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Menu de Marmitaria - Cardápio digital</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/mensagens.js"></script>
+  <script src="js/prato-form.js"></script>
+
+</body>
+</html>

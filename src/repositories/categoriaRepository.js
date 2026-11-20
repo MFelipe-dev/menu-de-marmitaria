@@ -32,12 +32,12 @@ async function criar({ nome, descricao }) {
 
 async function atualizar(id, { nome, descricao }) {
   const { rows } = await query(
-    `UPDATE categorias SET nome = $1, descricao = $2 WHERE id = $3 RETURNING ${COLUNAS}`,
+    `UPDATE categorias SET nome = $1, descricao = $2
+     WHERE id = $3 RETURNING ${COLUNAS}`,
     [nome, descricao, id]
   );
   return rows[0] || null;
 }
-
 async function excluir(id) {
   await query('DELETE FROM categorias WHERE id = $1', [id]);
 }

@@ -1,0 +1,329 @@
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+:root {
+  --vermelho: #c62828;
+  --vermelho-escuro: #a51f1f;
+  --fundo: #f7f5f2;
+  --branco: #ffffff;
+  --texto: #292929;
+  --cinza: #777777;
+  --borda: #e5e5e5;
+  --verde: #25834a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* =================================
+   CABEÇALHO
+================================= */
+
+.cabecalho {
+  background: var(--branco);
+  border-bottom: 3px solid var(--vermelho);
+  padding: 20px 0;
+}
+
+.cabecalho .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--vermelho);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navegacao a {
+  font-size: 15px;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.navegacao a:hover {
+  color: var(--vermelho);
+}
+
+/* =================================
+   TÍTULOS E SEÇÕES
+================================= */
+
+.secao-cardapio,
+.secao-formulario {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin: 30px 0 18px;
+}
+
+.secao-cardapio > p,
+.secao-formulario > p {
+  color: var(--cinza);
+  margin-bottom: 25px;
+}
+
+.voltar {
+  display: inline-block;
+  color: var(--vermelho);
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.voltar:hover {
+  text-decoration: underline;
+}
+
+/* =================================
+   LISTAS E CARDS
+================================= */
+
+.lista-categorias,
+.lista-pratos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.card-categoria,
+.card-prato {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-categoria:hover,
+.card-prato:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+}
+
+.card-categoria h3,
+.card-prato h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-categoria p,
+.card-prato p {
+  color: var(--cinza);
+  margin-bottom: 18px;
+}
+
+.card-prato strong {
+  color: var(--verde);
+  font-size: 21px;
+}
+
+/* =================================
+   BOTÕES
+================================= */
+
+.botao {
+  display: inline-block;
+  background: var(--vermelho);
+  color: var(--branco);
+  border: none;
+  border-radius: 7px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao:hover {
+  background: var(--vermelho-escuro);
+}
+
+/* =================================
+   FORMULÁRIOS
+================================= */
+
+.secao-formulario form {
+  background: var(--branco);
+  max-width: 650px;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--borda);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.campo {
+  margin-bottom: 22px;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.campo input:not([type="checkbox"]),
+.campo textarea,
+.campo select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--branco);
+}
+
+.campo textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--vermelho);
+  box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.12);
+}
+
+.campo input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--vermelho);
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+.campo label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* =================================
+   MENSAGENS
+================================= */
+
+#mensagem {
+  margin-top: 18px;
+  font-weight: bold;
+  color: var(--vermelho);
+}
+
+/* =================================
+   RODAPÉ
+================================= */
+
+.rodape {
+  background: #292929;
+  color: var(--branco);
+  text-align: center;
+  padding: 22px;
+  margin-top: 40px;
+}
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 650px) {
+
+  .cabecalho .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navegacao {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .secao-formulario form {
+    padding: 20px;
+  }
+
+  .lista-categorias,
+  .lista-pratos {
+    grid-template-columns: 1fr;
+  }
+
+  .botao {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =================================
+   SISTEMA DE MENSAGENS
+================================= */
+
+#mensagens {
+  width: 90%;
+  max-width: 1150px;
+  margin: 20px auto;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#mensagens[hidden] {
+  display: none;
+}
+
+.mensagem-sucesso {
+  background: #e5f5e9;
+  color: #23723c;
+  border: 1px solid #b8dfc2;
+}
+
+.mensagem-erro {
+  background: #fdeaea;
+  color: #a51f1f;
+  border: 1px solid #efc0c0;
+}

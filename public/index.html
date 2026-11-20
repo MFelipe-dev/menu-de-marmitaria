@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confira nosso cardápio de marmitas e pratos.">
+  <title>Menu de Marmitaria</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a href="index.html" class="logo">Sabor da Casa</a>
+
+      <nav class="navegacao">
+        <a href="index.html">Cardápio</a>
+        <a href="categoria-form.html">Categorias</a>
+        <a href="pratos.html">Pratos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="destaque">
+      <div class="container">
+        <p class="subtitulo">COMIDA CASEIRA FEITA COM CARINHO</p>
+        <h1>Seu sabor favorito está aqui!</h1>
+        <p>Confira nossas opções e conheça nosso cardápio.</p>
+      </div>
+    </section>
+
+    <section class="container secao-cardapio">
+      <h2>Nosso cardápio</h2>
+      <p>Escolha uma categoria para conhecer nossos pratos.</p>
+
+      <div id="lista-categorias" class="lista-categorias">
+        <p>Carregando categorias...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Menu de Marmitaria - Cardápio digital</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/mensagens.js"></script>
+  <script src="js/categorias.js"></script>
+</body>
+</html>

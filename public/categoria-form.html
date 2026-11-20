@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Categorias - Sabor da Casa</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a href="index.html" class="logo">Sabor da Casa</a>
+
+      <nav class="navegacao">
+        <a href="index.html">Cardápio</a>
+        <a href="categoria-form.html">Categorias</a>
+        <a href="prato-form.html">Cadastrar prato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container secao-formulario">
+
+    <a href="index.html" class="voltar">← Voltar ao cardápio</a>
+
+    <h1>Cadastro de categorias</h1>
+    <p>Organize os pratos do nosso cardápio.</p>
+
+    <form id="form-categoria">
+
+      <input type="hidden" id="categoria-id">
+
+      <div class="campo">
+        <label for="nome">Nome da categoria</label>
+        <input
+          type="text"
+          id="nome"
+          maxlength="80"
+          required
+          placeholder="Ex.: Pratos executivos"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="descricao">Descrição</label>
+        <textarea
+          id="descricao"
+          maxlength="200"
+          placeholder="Descreva esta categoria"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="botao">
+        Salvar categoria
+      </button>
+
+      <p id="mensagem"></p>
+
+    </form>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Menu de Marmitaria - Cardápio digital</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/mensagens.js"></script>
+  <script src="js/categoria-form.js"></script>
+
+</body>
+</html>
