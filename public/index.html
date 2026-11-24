@@ -15,9 +15,9 @@
       <a href="index.html" class="logo">Sabor da Casa</a>
 
       <nav class="navegacao">
-        <a href="index.html">Cardápio</a>
-        <a href="categoria-form.html">Categorias</a>
-        <a href="pratos.html">Pratos</a>
+        <a href="index.html" aria-current="page">Cardápio</a>
+        <a href="categoria-form.html">Nova categoria</a>
+        <a href="prato-form.html">Novo prato</a>
       </nav>
     </div>
   </header>
@@ -32,8 +32,15 @@
     </section>
 
     <section class="container secao-cardapio">
-      <h2>Nosso cardápio</h2>
-      <p>Escolha uma categoria para conhecer nossos pratos.</p>
+      <div id="mensagens" role="status" aria-live="polite" hidden></div>
+
+      <div class="cabecalho-pagina">
+        <div>
+          <h2>Nosso cardápio</h2>
+          <p>Escolha uma categoria para conhecer nossos pratos.</p>
+        </div>
+        <a href="categoria-form.html" class="botao">+ Nova categoria</a>
+      </div>
 
       <div id="lista-categorias" class="lista-categorias">
         <p>Carregando categorias...</p>
@@ -47,6 +54,7 @@
 
   <script src="js/api.js"></script>
   <script src="js/mensagens.js"></script>
+  <script src="js/componentes.js"></script>
   <script src="js/categorias.js"></script>
 </body>
 </html>
