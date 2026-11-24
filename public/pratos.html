@@ -15,8 +15,8 @@
 
       <nav class="navegacao">
         <a href="index.html">Cardápio</a>
-        <a href="categoria-form.html">Categorias</a>
-        <a href="pratos.html">Pratos</a>
+        <a href="categoria-form.html">Nova categoria</a>
+        <a href="prato-form.html">Novo prato</a>
       </nav>
     </div>
   </header>
@@ -25,8 +25,15 @@
 
     <a href="index.html" class="voltar">← Voltar ao cardápio</a>
 
-    <h1 id="titulo-categoria">Nossos pratos</h1>
-    <p>Confira as opções disponíveis nesta categoria.</p>
+    <div id="mensagens" role="status" aria-live="polite" hidden></div>
+
+    <div class="cabecalho-pagina">
+      <div>
+        <h1 id="titulo-categoria">Nossos pratos</h1>
+        <p id="resumo-pratos">Confira as opções desta categoria.</p>
+      </div>
+      <a href="prato-form.html" id="novo-prato" class="botao">+ Novo prato</a>
+    </div>
 
     <div id="lista-pratos" class="lista-pratos">
       <p>Carregando pratos...</p>
@@ -40,6 +47,7 @@
 
   <script src="js/api.js"></script>
   <script src="js/mensagens.js"></script>
+  <script src="js/componentes.js"></script>
   <script src="js/pratos.js"></script>
 
 </body>

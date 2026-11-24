@@ -15,17 +15,17 @@
 
       <nav class="navegacao">
         <a href="index.html">Cardápio</a>
-        <a href="categoria-form.html">Categorias</a>
-        <a href="prato-form.html">Pratos</a>
+        <a href="categoria-form.html">Nova categoria</a>
+        <a href="prato-form.html" aria-current="page">Novo prato</a>
       </nav>
     </div>
   </header>
 
   <main class="container secao-formulario">
 
-    <a href="index.html" class="voltar">← Voltar ao cardápio</a>
+    <a href="index.html" class="voltar link-voltar-pratos">← Voltar</a>
 
-    <h1>Cadastro de pratos</h1>
+    <h1 id="titulo-formulario">Cadastro de pratos</h1>
     <p>Cadastre as opções disponíveis no cardápio.</p>
 
     <form id="form-prato">
@@ -37,6 +37,9 @@
         <select id="categoria" required>
           <option value="">Selecione uma categoria</option>
         </select>
+        <small id="dica-categoria" class="dica" hidden>
+          A categoria não pode ser alterada na edição.
+        </small>
       </div>
 
       <div class="campo">
@@ -79,11 +82,12 @@
         </label>
       </div>
 
-      <button type="submit" class="botao">
-        Salvar prato
-      </button>
+      <div class="acoes-formulario">
+        <button type="submit" class="botao">Salvar prato</button>
+        <a href="index.html" class="botao botao-secundario link-voltar-pratos">Cancelar</a>
+      </div>
 
-      <p id="mensagem"></p>
+      <div id="mensagens" role="status" aria-live="polite" hidden></div>
 
     </form>
 
@@ -95,6 +99,7 @@
 
   <script src="js/api.js"></script>
   <script src="js/mensagens.js"></script>
+  <script src="js/componentes.js"></script>
   <script src="js/prato-form.js"></script>
 
 </body>
