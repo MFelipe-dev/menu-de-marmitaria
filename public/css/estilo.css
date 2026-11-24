@@ -32,6 +32,11 @@ a {
   color: inherit;
 }
 
+/* Garante que elementos com o atributo hidden fiquem ocultos mesmo com display definido no CSS */
+[hidden] {
+  display: none !important;
+}
+
 .container {
   width: 90%;
   max-width: 1150px;
@@ -73,8 +78,31 @@ a {
   transition: color 0.2s;
 }
 
-.navegacao a:hover {
+.navegacao a:hover,
+.navegacao a[aria-current="page"] {
   color: var(--vermelho);
+}
+
+/* =================================
+   DESTAQUE (PÁGINA INICIAL)
+================================= */
+
+.destaque {
+  background: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+  color: var(--branco);
+  padding: 56px 0;
+}
+
+.destaque .subtitulo {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.destaque h1 {
+  font-size: 36px;
 }
 
 /* =================================
@@ -102,6 +130,22 @@ h2 {
   margin-bottom: 25px;
 }
 
+.cabecalho-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cabecalho-pagina h2 {
+  margin: 0 0 4px;
+}
+
+.cabecalho-pagina p {
+  color: var(--cinza);
+}
+
 .voltar {
   display: inline-block;
   color: var(--vermelho);
@@ -120,7 +164,7 @@ h2 {
 .lista-categorias,
 .lista-pratos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 22px;
   margin-top: 25px;
 }
@@ -133,6 +177,8 @@ h2 {
   padding: 24px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-categoria:hover,
@@ -158,6 +204,47 @@ h2 {
   font-size: 21px;
 }
 
+.card-prato.indisponivel {
+  background: #fafafa;
+}
+
+.card-prato.indisponivel h3,
+.card-prato.indisponivel p,
+.card-prato.indisponivel strong {
+  opacity: 0.55;
+}
+
+.etiqueta {
+  align-self: flex-start;
+  background: #eeeeee;
+  color: #555555;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.lista-vazia {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--cinza);
+  background: var(--branco);
+  border: 2px dashed var(--borda);
+  border-radius: 12px;
+  padding: 40px 20px;
+}
+
 /* =================================
    BOTÕES
 ================================= */
@@ -177,6 +264,44 @@ h2 {
 
 .botao:hover {
   background: var(--vermelho-escuro);
+}
+
+.botao:focus-visible {
+  outline: 3px solid rgba(198, 40, 40, 0.35);
+  outline-offset: 2px;
+}
+
+.botao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.botao-pequeno {
+  padding: 8px 14px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.botao-secundario {
+  background: var(--branco);
+  color: var(--texto);
+  border: 1px solid #cccccc;
+}
+
+.botao-secundario:hover {
+  background: var(--branco);
+  color: var(--vermelho);
+  border-color: var(--vermelho);
+}
+
+.botao-perigo {
+  background: var(--branco);
+  color: var(--vermelho);
+  border: 1px solid #efc0c0;
+}
+
+.botao-perigo:hover {
+  background: #fdeaea;
 }
 
 /* =================================
@@ -206,12 +331,49 @@ h2 {
 .campo textarea,
 .campo select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #cccccc;
-  border-radius: 7px;
+  padding: 12px 14px;
+  border: 1.5px solid #d4d4d4;
+  border-radius: 9px;
   font-size: 15px;
   font-family: inherit;
-  background: var(--branco);
+  color: var(--texto);
+  background-color: var(--branco);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.campo input:not([type="checkbox"]):hover:not(:disabled),
+.campo textarea:hover:not(:disabled),
+.campo select:hover:not(:disabled) {
+  border-color: #b5b5b5;
+}
+
+/* Dropdown: troca a seta nativa (fina) por uma seta própria, no tom do site */
+.campo select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 50px;
+  padding-right: 48px;
+  font-weight: bold;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c62828' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px;
+}
+
+.campo select:hover:not(:disabled) {
+  background-color: #fdf6f6;
+}
+
+/* Enquanto nenhuma categoria foi escolhida, o texto fica cinza como um placeholder */
+.campo select:invalid {
+  color: var(--cinza);
+  font-weight: normal;
+}
+
+.campo select option {
+  color: var(--texto);
+  font-weight: normal;
 }
 
 .campo textarea {
@@ -224,7 +386,7 @@ h2 {
 .campo select:focus {
   outline: none;
   border-color: var(--vermelho);
-  box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.12);
+  box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.12);
 }
 
 .campo input[type="checkbox"] {
@@ -235,20 +397,30 @@ h2 {
   margin-right: 7px;
 }
 
+.campo select:disabled {
+  background-color: #f4f4f4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b0b0b0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E");
+  color: var(--cinza);
+  cursor: not-allowed;
+}
+
+.dica {
+  display: block;
+  color: var(--cinza);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.acoes-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .campo label:has(input[type="checkbox"]) {
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-
-/* =================================
-   MENSAGENS
-================================= */
-
-#mensagem {
-  margin-top: 18px;
-  font-weight: bold;
-  color: var(--vermelho);
 }
 
 /* =================================
@@ -297,6 +469,15 @@ h2 {
     width: 100%;
     text-align: center;
   }
+
+  .acoes .botao {
+    width: auto;
+    flex: 1;
+  }
+
+  .destaque h1 {
+    font-size: 28px;
+  }
 }
 
 /* =================================
@@ -304,12 +485,14 @@ h2 {
 ================================= */
 
 #mensagens {
-  width: 90%;
-  max-width: 1150px;
-  margin: 20px auto;
+  margin-bottom: 20px;
   padding: 14px 18px;
   border-radius: 8px;
   font-weight: bold;
+}
+
+form #mensagens {
+  margin: 20px 0 0;
 }
 
 #mensagens[hidden] {
