@@ -15,8 +15,8 @@
 
       <nav class="navegacao">
         <a href="index.html">Cardápio</a>
-        <a href="categoria-form.html">Categorias</a>
-        <a href="prato-form.html">Cadastrar prato</a>
+        <a href="categoria-form.html" aria-current="page">Nova categoria</a>
+        <a href="prato-form.html">Novo prato</a>
       </nav>
     </div>
   </header>
@@ -25,7 +25,7 @@
 
     <a href="index.html" class="voltar">← Voltar ao cardápio</a>
 
-    <h1>Cadastro de categorias</h1>
+    <h1 id="titulo-formulario">Cadastro de categorias</h1>
     <p>Organize os pratos do nosso cardápio.</p>
 
     <form id="form-categoria">
@@ -52,11 +52,12 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="botao">
-        Salvar categoria
-      </button>
+      <div class="acoes-formulario">
+        <button type="submit" class="botao">Salvar categoria</button>
+        <a href="index.html" class="botao botao-secundario">Cancelar</a>
+      </div>
 
-      <p id="mensagem"></p>
+      <div id="mensagens" role="status" aria-live="polite" hidden></div>
 
     </form>
 
@@ -68,6 +69,7 @@
 
   <script src="js/api.js"></script>
   <script src="js/mensagens.js"></script>
+  <script src="js/componentes.js"></script>
   <script src="js/categoria-form.js"></script>
 
 </body>

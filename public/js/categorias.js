@@ -1,44 +1,46 @@
 
+const listaCategorias = document.getElementById('lista-categorias');
+
+function criarCardCategoria(categoria) {
+  const card = criarElemento('article', 'card card-categoria');
+
+  card.append(
+    criarElemento('h3', null, categoria.nome),
+    criarElemento('p', null, categoria.descricao || 'Confira nossos pratos.'),
+    criarAcoes(
+      criarLink('Ver pratos', `pratos.html?categoria=${categoria.id}`),
+      criarLink('Editar', `categoria-form.html?id=${categoria.id}`, 'botao botao-pequeno botao-secundario'),
+      criarBotao('Excluir', 'botao botao-pequeno botao-perigo', () => excluirCategoria(categoria))
+    )
+  );
+
+  return card;
+}
+
+function excluirCategoria(categoria) {
+  return confirmarExclusao({
+    pergunta: `Deseja excluir a categoria "${categoria.nome}"?`,
+    excluir: () => api.excluirCategoria(categoria.id),
+    mensagemSucesso: `Categoria "${categoria.nome}" excluída com sucesso.`,
+    aoConcluir: carregarCategorias,
+  });
+}
+
 async function carregarCategorias() {
-  const container = document.getElementById('lista-categorias');
-
-  if (!container) return;
-
   try {
     const categorias = await api.listarCategorias();
 
-    container.innerHTML = '';
-
     if (categorias.length === 0) {
-      container.textContent = 'Nenhuma categoria cadastrada.';
+      mostrarListaVazia(listaCategorias, 'Nenhuma categoria cadastrada ainda.');
       return;
     }
 
-    categorias.forEach((categoria) => {
-      const card = document.createElement('article');
-      card.className = 'card-categoria';
-
-      const titulo = document.createElement('h3');
-      titulo.textContent = categoria.nome;
-
-      const descricao = document.createElement('p');
-      descricao.textContent =
-        categoria.descricao || 'Confira nossos pratos.';
-
-      const botao = document.createElement('a');
-      botao.href = `pratos.html?categoria=${categoria.id}`;
-      botao.className = 'botao';
-      botao.textContent = 'Ver pratos';
-
-      card.append(titulo, descricao, botao);
-      container.appendChild(card);
-    });
+    listaCategorias.replaceChildren(...categorias.map(criarCardCategoria));
 
   } catch (erro) {
-    container.textContent = 'Não foi possível carregar as categorias.';
+    mostrarListaVazia(listaCategorias, 'Não foi possível carregar as categorias.');
     mostrarErro(erro);
   }
 }
 
 document.addEventListener('DOMContentLoaded', carregarCategorias);
-

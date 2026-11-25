@@ -2,19 +2,28 @@
 const API_URL = '/api';
 
 async function requisicao(endpoint, opcoes = {}) {
-  const resposta = await fetch(`${API_URL}${endpoint}`, {
-    ...opcoes,
-    headers: {
-      'Content-Type': 'application/json',
-      ...opcoes.headers,
-    },
-  });
+  let resposta;
+
+  try {
+    resposta = await fetch(`${API_URL}${endpoint}`, {
+      ...opcoes,
+      headers: {
+        'Content-Type': 'application/json',
+        ...opcoes.headers,
+      },
+    });
+  } catch {
+    throw new Error(
+      'Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.'
+    );
+  }
 
   if (resposta.status === 204) {
     return null;
   }
 
-  const dados = await resposta.json();
+  // Respostas que não são JSON (ex.: página de erro do servidor) não quebram a tela.
+  const dados = await resposta.json().catch(() => ({}));
 
   if (!resposta.ok) {
     throw new Error(dados.erro || 'Erro ao comunicar com o servidor.');
