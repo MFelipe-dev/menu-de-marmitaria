@@ -172,7 +172,7 @@ As regras de preço, nome único e exclusão também são garantidas pelo banco 
 | Petrus Galvão Fernandes Sobreira | 2631627 |
 | _[Nome completo]_ | _[Matrícula]_ |
 | _[Nome completo]_ | _[Matrícula]_ |
-| _[Nome completo]_ | _[Matrícula]_ |
+| Renato Clemente de Araújo Neto_ | 2514949 |
 
 ## Uso de IA generativa
 
