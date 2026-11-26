@@ -170,7 +170,7 @@ As regras de preço, nome único e exclusão também são garantidas pelo banco 
 | Nome | Matrícula |
 |---|---|
 | Petrus Galvão Fernandes Sobreira | 2631627 |
-| _[Nome completo]_ | _[Matrícula]_ |
+| Carolina Montenegro de Miranda Moura | 2526652 |
 | _[Nome completo]_ | _[Matrícula]_ |
 | _[Nome completo]_ | _[Matrícula]_ |
 
