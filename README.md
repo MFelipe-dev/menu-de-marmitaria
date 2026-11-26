@@ -170,9 +170,15 @@ As regras de preço, nome único e exclusão também são garantidas pelo banco 
 | Nome | Matrícula |
 |---|---|
 | Petrus Galvão Fernandes Sobreira | 2631627 |
+<<<<<<< HEAD
 | _[Nome completo]_ | _[Matrícula]_ |
-| _[Nome completo]_ | _[Matrícula]_ |
+| Marcos Felipe de Sousa Mesquita | 2514981 |
 | Renato Clemente de Araújo Neto_ | 2514949 |
+=======
+| Carolina Montenegro de Miranda Moura | 2526652 |
+| _[Nome completo]_ | _[Matrícula]_ |
+| _[Nome completo]_ | _[Matrícula]_ |
+>>>>>>> origin/feature/frontend-marmitaria
 
 ## Uso de IA generativa
 
