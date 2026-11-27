@@ -6,7 +6,7 @@ Sistema web para a marmitaria manter o cardápio organizado por categorias. A in
 
 - **Entidades:** Categoria e Prato (uma categoria tem vários pratos; cada prato pertence a uma categoria)
 - **Operações:** cadastrar, listar, editar e excluir categorias e pratos
-- **Aplicação publicada:** _[inserir link]_
+- **Aplicação publicada:** [menu-de-marmitaria.onrender.com](https://menu-de-marmitaria.onrender.com/)
 
 ## Tecnologias
 
