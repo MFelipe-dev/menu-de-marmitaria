@@ -172,10 +172,9 @@ As regras de preço, nome único e exclusão também são garantidas pelo banco 
 | Petrus Galvão Fernandes Sobreira | 2631627 |
 | Marcos Felipe de Sousa Mesquita | 2514981 |
 | Lucas de Matos Cardoso | 2517308 |
-| Renato Clemente de Araújo Neto_ | 2514949 |
+| Renato Clemente de Araújo Neto| 2514949 |
 | Carolina Montenegro de Miranda Moura | 2526652 |
 | Yarlon Rick Rodrigues Nascimento | 2514874 |
->>>>>>> origin/feature/frontend-marmitaria
 
 ## Uso de IA generativa
 
