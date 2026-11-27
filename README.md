@@ -174,8 +174,7 @@ As regras de preço, nome único e exclusão também são garantidas pelo banco 
 | Lucas de Matos Cardoso | 2517308 |
 | Renato Clemente de Araújo Neto_ | 2514949 |
 | Carolina Montenegro de Miranda Moura | 2526652 |
-| _[Nome completo]_ | _[Matrícula]_ |
-| _[Nome completo]_ | _[Matrícula]_ |
+| Yarlon Rick Rodrigues Nascimento | 2514874 |
 >>>>>>> origin/feature/frontend-marmitaria
 
 ## Uso de IA generativa
